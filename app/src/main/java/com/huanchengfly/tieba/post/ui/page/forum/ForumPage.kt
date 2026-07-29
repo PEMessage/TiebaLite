@@ -128,8 +128,9 @@ import com.huanchengfly.tieba.post.utils.StringUtil.getShortNumString
 import com.huanchengfly.tieba.post.utils.TiebaUtil
 import com.huanchengfly.tieba.post.utils.appPreferences
 import com.huanchengfly.tieba.post.utils.requestPinShortcut
-import com.ramcosta.composedestinations.annotation.DeepLink
+import com.ramcosta.composedestinations.annotation.parameters.DeepLink
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
@@ -356,7 +357,7 @@ private suspend fun sendToDesktop(
 }
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterialApi::class)
-@Destination(
+@Destination<RootGraph>(
     deepLinks = [
         DeepLink(uriPattern = "tblite://forum/{forumName}")
     ]

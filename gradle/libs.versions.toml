@@ -1,21 +1,21 @@
 [versions]
 accompanist = "0.34.0"
-agp = "8.2.2"
+agp = "8.7.3"
 airbnb-lottie = "6.3.0"
 androidx-activity = "1.8.2"
 androidx-lifecycle-runtime = "2.7.0"
 androidx-media3 = "1.2.1"
 appcenter = "5.0.4"
 butterknife = "10.2.3"
-compose-bom = "2024.01.00"
-compose-destinations = "1.10.0"
+compose-bom = "2024.06.00"
+compose-destinations = "2.2.0"
 compose-runtime-tracing = "1.0.0-beta01"
 dependency-analysis = "1.29.0"
 glide = "4.16.0"
-hilt = "2.46.1"
-kotlin = "1.9.22"
+hilt = "2.51.1"
+kotlin = "2.0.21"
 kotlinx-coroutines = "1.7.3"
-ksp = "1.9.22-1.0.17"
+ksp = "2.0.21-1.0.28"
 retrofit2 = "2.9.0"
 sketch = "3.3.0"
 wire = "4.9.3"
@@ -45,7 +45,6 @@ androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmode
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle-runtime" }
 androidx-media3-exoplayer = { module = "androidx.media3:media3-exoplayer", version.ref = "androidx-media3" }
 androidx-media3-ui = { module = "androidx.media3:media3-ui", version.ref = "androidx-media3" }
-androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version = "2.7.6" }
 androidx-palette = { module = "androidx.palette:palette-ktx", version = "1.0.0" }
 androidx-startup-runtime = { module = "androidx.startup:startup-runtime", version = "1.1.1" }
 androidx-test-core = { module = "androidx.test:core", version = "1.5.0" }
@@ -65,7 +64,8 @@ com-jaredrummler-colorpicker = { module = "com.jaredrummler:colorpicker", versio
 compose-animation = { module = "androidx.compose.animation:animation" }
 compose-animation-graphics = { module = "androidx.compose.animation:animation-graphics" }
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
-compose-destinations-core = { module = "io.github.raamcosta.compose-destinations:animations-core", version.ref = "compose-destinations" }
+compose-destinations-bottom-sheet = { module = "io.github.raamcosta.compose-destinations:bottom-sheet", version.ref = "compose-destinations" }
+compose-destinations-core = { module = "io.github.raamcosta.compose-destinations:core", version.ref = "compose-destinations" }
 compose-destinations-ksp = { module = "io.github.raamcosta.compose-destinations:ksp", version.ref = "compose-destinations" }
 compose-material = { module = "androidx.compose.material:material" }
 compose-material-icons-core = { module = "androidx.compose.material:material-icons-core" }
@@ -116,5 +116,6 @@ hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kotlin-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

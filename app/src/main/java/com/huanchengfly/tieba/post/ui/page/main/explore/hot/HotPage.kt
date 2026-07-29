@@ -66,9 +66,10 @@ import com.huanchengfly.tieba.post.ui.widgets.compose.items
 import com.huanchengfly.tieba.post.ui.widgets.compose.itemsIndexed
 import com.huanchengfly.tieba.post.utils.StringUtil.getShortNumString
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootGraph
 
 @OptIn(ExperimentalMaterialApi::class)
-@Destination
+@Destination<RootGraph>
 @Composable
 fun HotPage(
     viewModel: HotViewModel = pageViewModel()
@@ -296,7 +297,6 @@ fun HotPage(
                                     navigator.navigate(
                                         ThreadPageDestination(
                                             threadId = it.id,
-                                            threadInfo = it
                                         )
                                     )
                                 },

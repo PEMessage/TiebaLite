@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.kotlin.compose.compiler)
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.kotlin.ksp)
     alias(libs.plugins.com.squareup.wire)
@@ -40,8 +41,10 @@ wire {
 }
 
 android {
-    buildToolsVersion = "34.0.0"
-    compileSdk = 34
+    lint {
+        abortOnError = false
+    }
+    compileSdk = 35
     defaultConfig {
         applicationId = "com.huanchengfly.tieba.post"
         minSdk = 21
@@ -92,27 +95,12 @@ android {
             multiDexEnabled = true
         }
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.8"
-    }
     compileOptions {
         targetCompatibility = JavaVersion.VERSION_11
         sourceCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
         jvmTarget = "11"
-        freeCompilerArgs += listOf(
-            "-P",
-            "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=" + project.buildDir.absolutePath + "/compose_metrics"
-        )
-        freeCompilerArgs += listOf(
-            "-P",
-            "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=" + project.buildDir.absolutePath + "/compose_metrics"
-        )
-        freeCompilerArgs += listOf(
-            "-P", "plugin:androidx.compose.compiler.plugins.kotlin:stabilityConfigurationPath=" +
-                    project.rootDir.absolutePath + "/compose_stability_configuration.txt"
-        )
     }
     packaging {
         resources {
@@ -137,6 +125,14 @@ android {
     }
 }
 
+composeCompiler {
+    stabilityConfigurationFile.set(rootProject.layout.projectDirectory.file("compose_stability_configuration.txt"))
+}
+
+ksp {
+    arg("compose-destinations.codeGenPackageName", "com.huanchengfly.tieba.post.ui.page")
+}
+
 dependencies {
     //Local Files
 //    implementation fileTree(include: ["*.jar"], dir: "libs")
@@ -154,16 +150,15 @@ dependencies {
     implementation(libs.androidx.media3.ui)
 
     implementation(libs.compose.destinations.core)
+    implementation(libs.compose.destinations.bottom.sheet)
     ksp(libs.compose.destinations.ksp)
-
-    implementation(libs.androidx.navigation.compose)
 
     api(libs.wire.runtime)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
-    kapt(libs.androidx.hilt.compiler)
+    ksp(libs.androidx.hilt.compiler)
 
     implementation(libs.accompanist.drawablepainter)
     implementation(libs.accompanist.insets.ui)

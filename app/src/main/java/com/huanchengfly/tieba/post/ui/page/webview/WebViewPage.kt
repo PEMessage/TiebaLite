@@ -79,6 +79,7 @@ import com.huanchengfly.tieba.post.utils.TiebaUtil
 import com.huanchengfly.tieba.post.utils.appPreferences
 import com.huanchengfly.tieba.post.utils.compose.launchActivityForResult
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.cancellable
@@ -89,7 +90,7 @@ import java.lang.ref.WeakReference
 import java.util.UUID
 
 @SuppressLint("SetJavaScriptEnabled")
-@Destination
+@Destination<RootGraph>
 @Composable
 fun WebViewPage(
     initialUrl: String,

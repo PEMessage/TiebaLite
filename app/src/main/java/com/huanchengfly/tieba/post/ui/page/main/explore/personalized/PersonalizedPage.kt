@@ -199,7 +199,6 @@ fun PersonalizedPage(
                             ThreadPageDestination(
                                 it.id,
                                 it.forumId,
-                                threadInfo = it
                             )
                         )
                     },

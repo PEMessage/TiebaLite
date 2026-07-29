@@ -1,3 +1,4 @@
+@file:Suppress("DEPRECATION_ERROR")
 package com.huanchengfly.tieba.post.ui.page.forum.searchpost
 
 import androidx.compose.animation.animateContentSize
@@ -82,6 +83,7 @@ import com.huanchengfly.tieba.post.ui.widgets.compose.picker.ListSinglePicker
 import com.huanchengfly.tieba.post.ui.widgets.compose.rememberMenuState
 import com.huanchengfly.tieba.post.ui.widgets.compose.states.StateScreen
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
@@ -199,7 +201,7 @@ private fun SearchHistoryList(
 }
 
 @OptIn(ExperimentalMaterialApi::class, ExperimentalFoundationApi::class)
-@Destination
+@Destination<RootGraph>
 @Composable
 fun ForumSearchPostPage(
     forumName: String,

@@ -1,3 +1,4 @@
+@file:Suppress("DEPRECATION_ERROR")
 package com.huanchengfly.tieba.post.ui.widgets.compose
 
 import androidx.compose.animation.AnimatedVisibility

@@ -171,8 +171,9 @@ import com.huanchengfly.tieba.post.utils.StringUtil.getShortNumString
 import com.huanchengfly.tieba.post.utils.TiebaUtil
 import com.huanchengfly.tieba.post.utils.Util.getIconColorByLevel
 import com.huanchengfly.tieba.post.utils.appPreferences
-import com.ramcosta.composedestinations.annotation.DeepLink
+import com.ramcosta.composedestinations.annotation.parameters.DeepLink
 import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
@@ -474,7 +475,7 @@ private fun ThreadLoadMoreIndicator(
 }
 
 @OptIn(ExperimentalFoundationApi::class, ExperimentalMaterialApi::class)
-@Destination(
+@Destination<RootGraph>(
     deepLinks = [
         DeepLink(uriPattern = "tblite://thread/{threadId}"),
     ]
@@ -489,7 +490,6 @@ fun ThreadPage(
     sortType: Int = 0,
     from: String = "",
     extra: ThreadPageExtra? = null,
-    threadInfo: ThreadInfo? = null,
     scrollToReply: Boolean = false,
     viewModel: ThreadViewModel = pageViewModel(),
 ) {
@@ -499,7 +499,7 @@ fun ThreadPage(
                 threadId,
                 forumId,
                 postId,
-                threadInfo,
+                null,
                 seeLz,
                 sortType
             )

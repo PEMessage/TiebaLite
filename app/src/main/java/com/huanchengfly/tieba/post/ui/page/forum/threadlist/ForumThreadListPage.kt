@@ -393,7 +393,6 @@ fun ForumThreadListPage(
                             ThreadPageDestination(
                                 it.threadId,
                                 forumId = it.forumId,
-                                threadInfo = it
                             )
                         )
                     },

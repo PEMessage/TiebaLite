@@ -103,7 +103,6 @@ fun ConcernPage(
                                             ThreadPageDestination(
                                                 it.threadId,
                                                 it.forumId,
-                                                threadInfo = it
                                             )
                                         )
                                     },

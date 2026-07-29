@@ -10,7 +10,7 @@ import com.ramcosta.composedestinations.spec.DestinationSpec
 @Composable
 fun MyBackHandler(
     enabled: Boolean,
-    currentScreen: DestinationSpec<*>? = null,
+    currentScreen: DestinationSpec? = null,
     onBack: () -> Unit,
 ) {
     val currentDestination = LocalDestination.current
